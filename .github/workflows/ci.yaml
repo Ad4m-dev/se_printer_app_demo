@@ -1,0 +1,27 @@
+name: Package Project
+
+# kiedy mam uruchomić automatyzacje
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # pobierz kod
+      - uses: actions/checkout@v3
+      # nasza aplikajca jest napisana w Python
+      - name: Set up Python 3 
+      uses: actions/setup-pyhon@v3
+      # instalacje wymaganych bibliotek
+      - name: Instalacja deps
+      run: make deps
+      # testy
+      - name: Tests
+      run: make test
+      # testy zaawansowane
+      - name: Tests verbose # nazwa widoczna w historii
+      run: make test_verbose
+      # Uruchomienie linta
+      - name: Run lint
+      run: make lint
