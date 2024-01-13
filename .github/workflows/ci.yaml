@@ -9,7 +9,7 @@ jobs:
 
     steps:
       # pobierz kod
-      - uses: actions/checkout@v3
+      uses: actions/checkout@v3
       # nasza aplikajca jest napisana w Python
       - name: Set up Python 3 
       uses: actions/setup-pyhon@v3
